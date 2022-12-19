@@ -1,0 +1,337 @@
+/* https://fullstack.edu.vn/external-url?continue=https%3A%2F%2Ff8ubuntu.online%2F */
+
+:root{
+    --primary-color: #ee4d2d;
+    --black-color: #000;
+    --white-color: #fff;
+    --text-color: #333;
+    --border-color:#dbdbdb;
+
+    --header-height: 120px;
+    --navbar-height: 34px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+}
+
+*{
+    /* ke thua lai nhung the chua no co thuoc tinh la box-sizing */
+    box-sizing: inherit; 
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+ /* reponsive */
+.grid{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width{
+    width: 100%;
+}
+
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-top: -5px;
+}
+
+/* test */
+.grid__column-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+
+.grid__column-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+
+.grid__column-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%;
+}
+
+
+/* animation */
+
+@keyframes FadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes growth{
+    from{
+        transform: scale(var(--growth-from));
+    }
+    to{
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* modal */
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    
+}
+
+.modal__overlay{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+    animation: FadeIn linear 0.1s;
+}
+.modal__body{
+    --growth-from: 0.7;
+    --growth-to: 1;
+    animation: Growth linear 0.1s;
+    position: relative;
+    margin: auto;
+    z-index: 1;
+}
+.modal__inner{
+    
+}
+
+/* button style */
+.btn{
+    height: 34px;
+    min-width: 124px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    padding: 0 12px;
+    cursor: pointer;
+    color: var(--text-color);
+    /* font-weight: 450; */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+}
+
+.btn.btn--normal:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn--size-s{
+    height: 32px;
+    font-size: 12px;
+    padding: 0 8px;
+}
+
+.btn.btn--primary{ 
+    /* yêu cầu 1 thẻ mà thẻ đó phải có cả 2 class là btn và primary*/
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn.btn--dis{ 
+    /* nút không ấn được*/
+    cursor: default;
+    background-color: #c3c3c3;
+    color: #949494;
+}
+
+/* Selection */
+.select-input{
+    position: relative;
+    height: 34px;
+    min-width: 200px;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding: 0 12px; 
+    align-items: center;
+    z-index: 1;
+}
+
+.select-input__label{
+    font-size: 1.4rem;
+
+}
+
+.select-input__list{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20px;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    padding: 10px 16px;
+    list-style: none;
+    display: none;
+    box-shadow: 0 1px 2px #e0e0e0;
+}
+
+.select-input__icon{
+    font-size: 1rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+}
+
+.select-input__link{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 5px 0;
+    display: block;
+}
+
+.select-input__link:hover{
+    color: var(--primary-color);
+}
+
+.select-input:hover .select-input__list{
+    display: block;
+}
+
+
+
+/* pagination */
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.pagination-item{
+    margin: 0 8px 0 ;
+}
+
+.pagination-item__link{
+    --height: 30px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: #939393;
+    min-width: 40px;
+    height: var(--height);
+    line-height: var(--height);
+    border-radius: 2px;
+    display: block;
+    text-align: center;
+    font-weight: 300px;
+}
+
+.pagination-item--active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item--active:hover{
+    background-color: #ed5c3f;
+}
+
+.pagination-icon{
+ 
+}
+
+/* check box  navgative*/
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.checkbox-container label {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: #242424;
+}
+
+
+.checkbox-container input[type='checkbox'] {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+}
+
+.checkbox-container label::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    float: left;
+    position: relative;
+    top: 1px;
+    border: 1px solid #949494;
+    display: block;
+    margin-right: 8px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+}
+
+.checkbox-container input[type='checkbox']:checked + label::before  {
+    font-family: FontAwesome;
+    content: '\f00c';
+    font-size: 1rem;
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.checkbox-add{
+    margin-left: 20px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.checkbox-add--sup{
+    margin-left: 20px;
+    position: relative;
+}
+
+.checkbox-add__lable{
+    font-size: 1.4rem;
+    color: #242424;
+    padding-right: 8px;
+    cursor: pointer;
+}
+
+.checkbox-add::after{
+    content: " ";
+    position: absolute;
+    border-top: 1px solid #cfcfcf;
+    top: 44px;
+    left: -20px;
+    right: 20px;
+    width: 180px;
+}
+
+.checkbox-add--sup::after{
+    content: " ";
+    position: absolute;
+    border-top: 1px solid #cfcfcf;
+    top: 5px;
+    left: -20px;
+    right: 20px;
+    width: 180px;
+}
